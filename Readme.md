@@ -18,3 +18,17 @@ path = File.expand_path("../views/#{template}", __FILE__) <- this will provide f
 
 ERB.new(File.read(path)).result(binding) <- binding is used to include all the methods 
 
+
+		
+		request = Rack::Request.new(env) <- we make a request for same status: 200
+
+		case request.path <- request vairable will ask for the path from the brwoser
+
+		when "/" then Rack::Response.new(render('index.html.erb'))
+
+		else Rack::Response.new("Not found", 400)
+		end
+
+
+
+when "/change" then Rack::Response.new(request.params["name"])    will show name 
