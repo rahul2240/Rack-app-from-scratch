@@ -32,3 +32,10 @@ ERB.new(File.read(path)).result(binding) <- binding is used to include all the m
 
 
 when "/change" then Rack::Response.new(request.params["name"])    will show name 
+
+
+use Rack::Auth::Basic do |username,password|
+	password=="secret"
+end 
+
+use this for authentication
